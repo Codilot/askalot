@@ -13,8 +13,8 @@ class User < ApplicationRecord
   end
 
 
-  def online?
-    !$redis.get("user_#{self.id}_online").nil?
-  end
+  # def online?
+  #   !$redis.get("user_#{self.id}_online").nil?
+  # end
 
 end
