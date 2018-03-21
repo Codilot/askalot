@@ -12,17 +12,9 @@ class User < ApplicationRecord
     email.split('@')[0]
   end
 
-  #redis
-  # def online?
-  #   if $redis.sismember("online","#{self.id}") == 1
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
 
   def online?
-    !Redis.new.get("user_#{self.id}_online").nil?
+    !$redis.get("user_#{self.id}_online").nil?
   end
 
 end
