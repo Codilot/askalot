@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+
+	<%= link_to destroy_user_session_path, class: "btn btn-outline-light" do %>
+	<span>Logout</span>
+	<% end %>
+
+	<%= link_to 'Your account', edit_user_registration_path, class: "btn btn-outline-light" %>
+
+<% else %>
+
+	<%= link_to new_user_session_path, class: "btn btn-outline-light" do %>
+	Login
+	<% end %>
+
+	<%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-light" %>
+
+<% end %>

@@ -1,0 +1,27 @@
+
+  <div class="container text-center jumbotron-wrapper">
+    <% if user_signed_in? %>
+
+      <div class="jumbotron col-md-8 col-lg-4">
+        <h1 class="display-4">Let's get started</h1>
+        <p class="lead">Get some expert advice</p>
+        <hr class="my-4">
+        <p class="lead">
+          <%= link_to 'Click here to continue', pages_index_path, class: "btn btn-outline-primary btn-lg" %>
+        </p>
+      </div>
+
+    <% else %>
+
+      <div class="jumbotron col-md-8 col-lg-4">
+        <h1 class="display-4">Ask the Web Developer</h1>
+        <p class="lead">Stuck with HTML, CSS or JavaScript features? Our experts give you advise</p>
+        <hr class="my-4">
+        <p>Sign up now and connect to a Web Developer.</p>
+        <p class="lead">
+          <%= link_to 'Sign up now', new_user_registration_path, class: "btn btn-outline-primary btn-lg" %>
+        </p>
+      </div>
+
+    <% end %>
+  </div>

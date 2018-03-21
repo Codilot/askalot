@@ -1,0 +1,32 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-9">
+      <h4 class="conversation-panel-title text-center">Connect with your Experts</h4>
+      <ul id="conversations-list">
+        <% @conversations.each do |conversation| %>
+          <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="user-panel">
+        <div class="list-group">
+          <ul>
+            <% @users.each do |user| %>
+              
+              <li class="list-item list-group-item d-flex align-items-center">
+              <%= gravatar_for user, class: "gravatar" %>
+              <%#= online_status(user) %>
+              <%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %>  
+              
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>  
