@@ -22,7 +22,7 @@
             <% @users_for_panel.each do |user| %>
               
               <li class="list-item list-group-item d-flex align-items-center">
-              <%= gravatar_for user, class: "gravatar" %>
+              <%= gravatar_for user %>
 
               <%#= online_status(user) %>
               <%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %>

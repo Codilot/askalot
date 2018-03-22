@@ -16,8 +16,13 @@ class User < ApplicationRecord
   end
 
 
+  def online_check
+    @online_status = $redis.get("#{self.id}:status") 
+    @online_status == "online"
+  end
+
   # def online?
-  #   !$redis.get("user_#{self.id}_online").nil?
+  #   !Redis.new.get("user_#{self.id}_online").nil?
   # end
 
 end
