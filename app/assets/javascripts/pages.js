@@ -10,7 +10,7 @@ $(document).on('turbolinks:load ajaxSuccess', function() {
     var messages_list = panel.find('.messages-list');
 
     panel.find('.conversation-panel').toggle();
-    panel.attr('class', 'conversation-wrapper card bg-light');
+    panel.attr('class', 'conversation-wrapper card');
 
     if (panel.find('.conversation-panel').is(':visible')) {
       var height = messages_list[0].scrollHeight;

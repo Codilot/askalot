@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   root 'pages#landing_page'
   get  'pages/index' => 'pages#index'
+  patch 'pages#landing_page', to: 'users#update_expertise', as: :user
   #get 'pages/landing_page' => 'pages#landing_page'
 
   devise_for :users, skip: [:sessions]
@@ -12,7 +13,8 @@ Rails.application.routes.draw do
     post 'login', to: 'devise/sessions#create', as: :user_session
     match 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
   end
-
+  
+  resources :users, only: [:update_expertise]
   
   resources :conversations, only: [:create] do
     member do

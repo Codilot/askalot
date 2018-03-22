@@ -11,7 +11,7 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
         var messages_visible = (conversation).find('.conversation-panel').is(':visible');
 
         if (!messages_visible) {
-          conversation.removeClass('bg-light').addClass('bg-info');
+          conversation.addClass('bg-flash');
         }
         conversation.find('.messages-list').find('ul').append(data['message']);
       }

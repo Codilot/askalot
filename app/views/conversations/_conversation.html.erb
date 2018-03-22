@@ -1,8 +1,8 @@
 <li>
-  <div class="conversation-wrapper card bg-light" data-conversation-id="<%= conversation.id %>">
+  <div class="conversation-wrapper card" data-conversation-id="<%= conversation.id %>">
     <div class="card-header panel-heading">
       <%= link_to conversation.opposed_user(user).email, '', class: 'toggle-window' %>
-      <%= link_to "x", close_conversation_path(conversation), class: "btn btn-outline-secondary btn-sm pull-right", remote: true, method: :post %>
+      <%= link_to "x", close_conversation_path(conversation), class: "btn btn-outline-light btn-sm pull-right closer", remote: true, method: :post %>
     </div>
 
     <div class="conversation-panel card-body" style="display: none;">
@@ -15,7 +15,7 @@
         <input name="conversation_id" type="hidden" value="<%= conversation.id %>">
         <input name="user_id" type="hidden" value="<%= user.id %>">
         <textarea name="body" class="form-control"></textarea>
-        <input type="submit" class="btn btn-success" value="Send">
+        <input type="submit" class="btn btn-outline-primary" value="Send">
       </form>
     </div>
   </div>

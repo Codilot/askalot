@@ -1,14 +1,18 @@
 
   <div class="container text-center jumbotron-wrapper">
     <% if user_signed_in? %>
-
+      
       <div class="jumbotron col-md-8 col-lg-4">
         <h1 class="display-4">Let's get started</h1>
-        <p class="lead">Get some expert advice</p>
+        <p class="lead">Choose your experience level</p>
         <hr class="my-4">
-        <p class="lead">
-          <%= link_to 'Click here to continue', pages_index_path, class: "btn btn-outline-primary btn-lg" %>
-        </p>
+        <% if @user.present? %>
+
+          <%= render "users/expertise_form", locals:{user: @user} %>
+          <p class="lead">
+            <%= link_to 'Continue without experience', pages_index_path, class: "btn btn-link btn-sm" %>
+          </p>
+        <% end %>
       </div>
 
     <% else %>

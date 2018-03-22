@@ -1,8 +1,13 @@
 <div class="container-fluid">
+<div class="row">
+  <div class="col-12">
+    <h4 class="conversation-panel-title text-center">Connect with your Experts</h4>
+  </div>
+</div>
 
   <div class="row">
-    <div class="col-sm-9">
-      <h4 class="conversation-panel-title text-center">Connect with your Experts</h4>
+    <div class="col-10 col-md-9">
+      
       <ul id="conversations-list">
         <% @conversations.each do |conversation| %>
           <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
@@ -10,16 +15,19 @@
       </ul>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-2 col-md-3">
       <div class="user-panel">
         <div class="list-group">
           <ul>
-            <% @users.each do |user| %>
+            <% @users_for_panel.each do |user| %>
               
               <li class="list-item list-group-item d-flex align-items-center">
               <%= gravatar_for user, class: "gravatar" %>
+
               <%#= online_status(user) %>
-              <%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %>  
+              <%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %>
+              <small><%= fa_icon "graduation-cap" %></small> 
+              <small><i><%= user.expertise %></i></small> 
               
               </li>
             <% end %>
@@ -29,4 +37,4 @@
     </div>
   </div>
 
-</div>  
+</div>

@@ -25,9 +25,6 @@ body {
 //   transform: translateX(-50%) translateY(-50%);
 // }
 
-.pull-right {
-  float: right;
-}
 
 .jumbotron-wrapper {
   margin: 8% auto 0;
@@ -126,8 +123,17 @@ ul {
   text-align: left;
 }
 
+///////////////// landing page ///////////////////////////////////
+.lead {
+  margin-top: 20px;
+  a {
+    color: #fff;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
-
+}
 
 
 ///////////////// index page ///////////////////////////////////
@@ -142,57 +148,92 @@ ul {
   padding: 0px;
   margin: 0px;
   position: fixed;
-  right: -115px;
-  top: 130px;
-  width: 240px;
+  right: -245px;
+  top: 103px;
+  width: 300px;
+  z-index:99;
 }
 
 .list-item {
   list-style-type: none;
   background-color: rgba(0, 0, 0, 0.2);
   color: #efefef;
-  height: 50px;
+  min-height: 50px;
   padding: 0px;
   margin: 0px 0px 1px 0px;
   transition: all 0.25s ease-in-out;
   cursor: pointer;
-  .gravatar, a {
-    margin-left: 10px;
-  }
+    a {
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+    small {
+      margin-left: 5px;
+    }
+    &:hover {
+    margin-left: -200px;
+    }
+    .gravatar {
+      margin-left: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 4px solid rgba(0, 0, 0, 0.3);
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+     filter: grayscale(100%); 
+    }
+    .online_status {
+     transition: all 1s ease;
+       &.online {
+        -webkit-filter: none; /* Safari 6.0 - 9.0 */
+        filter: none;
+        border: 4px solid green;
+        }
+    }
+}
 
-  .gravatar{
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 4px solid rgba(0, 0, 0, 0.3);
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-   filter: grayscale(100%);
-    
-  }
 
-  .online_status {
-   transition: all 1s ease;
-   &.online {
-    -webkit-filter: none; /* Safari 6.0 - 9.0 */
-    filter: none;
-    border: 4px solid green;
+
+
+#conversations-list {
+
+  .card {
+    margin-top: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .panel-heading {
+    line-height: 1em;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .panel-heading a {
+    font-weight: bold;
+    line-height:1em;
+  }
+  .closer {
+    font-size:0.8em;
+    padding: 2px 4px 3px 4px;
+    line-height:1em;
   }
 }
-}
-
-.list-item:hover {
-  margin-left: -115px;
-}
-
-
-
-
-
 
 .messages-list {
   max-height: 200px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.new_message {
+  textarea {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  textarea:focus {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .btn {
+    margin-top: 20px;
+  }
 }
 
 .message-sent {

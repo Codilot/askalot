@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user! 
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :update_expertise]
 
   # GET /users
   # GET /users.json
@@ -52,6 +52,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_expertise
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to pages_index_path, notice: 'Your experience was successfully updated.' }
+      else
+        format.html { redirect_to pages_landing_page_path, notice: 'Something went wrong.' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -70,6 +81,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :expertise)
     end
 end
