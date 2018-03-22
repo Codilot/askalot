@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :messages, :dependent => :destroy
   has_many :conversations, foreign_key: :sender_id, :dependent => :destroy
 
+  validates :expertise, inclusion: { in: %w(Expert Senior Junior Newbie),
+    message: "%{value} is not valid" }, allow_nil: true
+
   def name
     email.split('@')[0]
   end

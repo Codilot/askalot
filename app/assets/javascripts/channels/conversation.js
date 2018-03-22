@@ -10,9 +10,9 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
       if (conversation_visible) {
         var messages_visible = (conversation).find('.conversation-panel').is(':visible');
 
-        if (!messages_visible) {
-          conversation.addClass('bg-flash');
-        }
+        // if (!messages_visible) {
+        //   conversation.addClass('bg-flash');
+        // }
         conversation.find('.messages-list').find('ul').append(data['message']);
       }
       else {
