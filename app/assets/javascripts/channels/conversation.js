@@ -10,9 +10,13 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
       if (conversation_visible) {
         var messages_visible = (conversation).find('.conversation-panel').is(':visible');
 
-        // if (!messages_visible) {
-        //   conversation.addClass('bg-flash');
-        // }
+        if (!messages_visible) {
+          // conversation.find('.panel-heading, a').css({
+          //     "color": "#fff",
+          //     "background-color": "#428bca"
+          //   });
+          conversation.find('.panel-heading, a').addClass('bg-primary text-white');
+        }
         conversation.find('.messages-list').find('ul').append(data['message']);
       }
       else {
