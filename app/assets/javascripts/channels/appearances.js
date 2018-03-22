@@ -5,6 +5,8 @@ App.appearances = App.cable.subscriptions.create("AppearancesChannel", {
 
   disconnected: function() {
     // Called when the subscription has been terminated by the server
+    var user = $(".user-" + data['user_id']);
+    user.removeClass('online');
   },
 
   received: function(data) {

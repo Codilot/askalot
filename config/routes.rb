@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  mount ActionCable.server => '/cable'	
+  mount ActionCable.server => '/cable'
+  
   root 'pages#landing_page'
   get  'pages/index' => 'pages#index'
   #get 'pages/landing_page' => 'pages#landing_page'
