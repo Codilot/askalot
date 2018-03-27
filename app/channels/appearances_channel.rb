@@ -13,6 +13,7 @@ class AppearancesChannel < ApplicationCable::Channel
     ActionCable.server.broadcast 'appearances_channel',
                                  user_id: current_user.id,
                                  online: false
+    stop_all_streams
   end
 
 end
