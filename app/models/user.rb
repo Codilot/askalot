@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
 
   def online 
-    $redis.get("#{self.id}:status") == "online"
+    $redis.get("#{self.id}:status") == "online" 
   end
 
 

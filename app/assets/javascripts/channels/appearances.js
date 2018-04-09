@@ -12,9 +12,18 @@ App.appearances = App.cable.subscriptions.create("AppearancesChannel", {
     // Called when there's incoming data on the websocket for this channel
 
     var user = $(".user-" + data['user_id']);
-    user.toggleClass('online');  
+    // user.toggleClass('online');  
+    
+
+    if(data['online'] == true) {
+      console.log(data);
+      console.log("true");
+      user.addClass('online');
+    }
 
     if(data['online'] == false) {
+      console.log(data);
+      console.log('false');
       user.removeClass('online');
     }
   }
