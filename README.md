@@ -8,7 +8,7 @@ Askalot is a basic demo chat application for web developers or non techs that ne
 * Responsive design
 
 ## System dependencies
-* Ruby version ruby '2.4.1'
+* Ruby 2.4.1
 * Rails 5.1.5
 * Redis
 
